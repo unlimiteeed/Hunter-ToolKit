@@ -1,9 +1,7 @@
 package main
 
 import (
-	"fmt"
-
-	installation "installer.io/installation/src"
+	configuration "installer.io/installation/src/configuration"
 )
 
 func main() {
@@ -13,7 +11,8 @@ func main() {
 	// fmt.Printf("[+] Clone Fuzzdb Wordlsit\n\n")
 	// installation.Clone("https://github.com/fuzzdb-project/fuzzdb", "wordlist")
 
-	fmt.Printf("[+] Installing Waymore")
-	installation.Clone("https://github.com/xnl-h4ck3r/waymore", "tools")
+	// fmt.Printf("[+] Installing Waymore")
+	// installation.Clone("https://github.com/xnl-h4ck3r/waymore", "tools")
 
+	configuration.ReadFunction()
 }
