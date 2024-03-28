@@ -1,0 +1,21 @@
+Tools:
+  Subfinder: True
+  Nuclei : True
+  Dnsx: True
+  MassDns: True
+  Dirsearch: True
+  ffuf: True
+  katna: True
+  Waymore: True
+  Wayback: True
+  amass: True
+  httpx: True
+  gua: True
+  x8: True
+  Dalfox: True
+  anew: True
+  getallurl: True
+
+WordLists:
+  SecList: True
+  FuzzEveryting: True
