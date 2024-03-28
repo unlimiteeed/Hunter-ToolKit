@@ -3,21 +3,44 @@ package yamlReader
 import (
 	"fmt"
 	"io/ioutil"
+	"log"
+	"os"
 
 	"gopkg.in/yaml.v3"
 )
 
+type Configuration struct {
+	Tools     map[string]bool `yaml:"Tools"`
+	WordLists map[string]bool `yaml:"WordLists"`
+}
+
 func ReadFunction() {
-	obj := make(map[string]interface{})
-
-	ConfigFile, err := ioutil.ReadFile("/config/installation.yaml")
+	file, err := os.Open("config/installation.yaml")
 	if err != nil {
-		fmt.Printf("We Have Error %v", err)
+		log.Fatalf("Error opening file: %v", err)
+	}
+	defer file.Close()
 
-	}
-	err = yaml.Unmarshal(ConfigFile, obj)
+	// Read the content of the file into a byte slice
+	data, err := ioutil.ReadAll(file)
 	if err != nil {
-		fmt.Println("Unmarsall Faild")
+		log.Fatalf("Error reading file content: %v", err)
 	}
-	fmt.Println(obj)
+
+	config := Configuration{}
+
+	// Unmarshal the byte slice containing YAML data
+	if err := yaml.Unmarshal(data, &config); err != nil {
+		log.Fatalf("Error unmarshalling YAML: %v", err)
+	}
+
+	fmt.Println("Tools:")
+	for tool, available := range config.Tools {
+		fmt.Printf("%s - %v\n", tool, available)
+	}
+
+	fmt.Println("Wordlists:")
+	for wordlist, available := range config.WordLists {
+		fmt.Printf("%s - %v\n", wordlist, available)
+	}
 }
