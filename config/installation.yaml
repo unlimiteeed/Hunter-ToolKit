@@ -18,4 +18,4 @@ Tools:
 
 WordLists:
   SecList: True
-  FuzzEveryting: True
+  FuzzDB: True

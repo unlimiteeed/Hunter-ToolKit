@@ -1,7 +1,6 @@
 package yamlReader
 
 import (
-	"fmt"
 	"io/ioutil"
 	"log"
 	"os"
@@ -14,7 +13,7 @@ type Configuration struct {
 	WordLists map[string]bool `yaml:"WordLists"`
 }
 
-func ReadFunction() {
+func ReadFunction() Configuration {
 	file, err := os.Open("config/installation.yaml")
 	if err != nil {
 		log.Fatalf("Error opening file: %v", err)
@@ -34,13 +33,6 @@ func ReadFunction() {
 		log.Fatalf("Error unmarshalling YAML: %v", err)
 	}
 
-	fmt.Println("Tools:")
-	for tool, available := range config.Tools {
-		fmt.Printf("%s - %v\n", tool, available)
-	}
+	return config
 
-	fmt.Println("Wordlists:")
-	for wordlist, available := range config.WordLists {
-		fmt.Printf("%s - %v\n", wordlist, available)
-	}
 }

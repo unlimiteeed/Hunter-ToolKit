@@ -35,7 +35,7 @@ func Clone(url, directory string) error {
 }
 
 func GoInstall(url string) error {
-	cmd := exec.Command("go", "install", url)
+	cmd := exec.Command("go", "install", "-v", url)
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
 	return cmd.Run()
