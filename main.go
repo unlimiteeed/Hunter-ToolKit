@@ -3,8 +3,8 @@ package main
 import (
 	"fmt"
 
+	installation "installer.io/installation/src/Installation"
 	yamlReader "installer.io/installation/src/configuration"
-	installation "installer.io/installation/src/installation"
 )
 
 func main() {
