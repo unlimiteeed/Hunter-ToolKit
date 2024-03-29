@@ -130,7 +130,7 @@ func main() {
 		} else {
 			fmt.Println("[+]SecList is not available")
 		}
-		if config.WordLists["Fuzzdb"] {
+		if config.WordLists["FuzzDB"] {
 			fmt.Printf("[+] Clone Fuzzdb Wordlsit\n\n")
 			installation.Clone("https://github.com/fuzzdb-project/fuzzdb", "wordlist")
 		} else {
